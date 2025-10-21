@@ -180,7 +180,8 @@ ggsave('figs/Ejercicio1.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio2.pdf``.
 
 ```{r Solucion ejercicio 2}
-
+rm(list = ls())
+load("./data/weatherAUS.RData")
 ggplot(ds,aes(x= Temp9am, y= Pressure9am,shape=RainToday) )+geom_point()
 ggplot(ds,aes(x= Temp9am, y= Pressure9am, colour = RainToday) )+geom_point() + labs(title="Probabilidad de lluvia segun condiciones meteorologicas",
                                                                                     subtitle ="Relacion entre la Lluvia y presinn" ,
@@ -203,6 +204,16 @@ ggsave('figs/Ejercicio2.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio3.pdf``.
 
 ```{r Solucion ejercicio 3}
+rm(list = ls())
+load("./data/iris_tidy.Rdata")
+str(iris.tidy)
+iris.grafico1<- ggplot(iris.tidy,aes(x=Species,y=Value))+geom_point()
+iris.grafico1<-ggplot(iris.tidy,aes(x=Species,y=Value,colour = Part))+geom_point()
+iris.grafico2<-iris.grafico1+facet_grid(Measure~.)
+iris.grafico2
+iris.grafico2<-iris.grafico1+facet_grid(.~Measure)
+iris.grafico2
+ggplot(iris.tidy)+geom_jitter(mapping=aes(x=Species,y=Value,colour = Part))
 
 ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
