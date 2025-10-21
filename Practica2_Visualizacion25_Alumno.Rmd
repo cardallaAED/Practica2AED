@@ -302,7 +302,7 @@ load("./data/Ejercicio4_Data.Rdata")
 ggplot(data=DatosEjer4, aes(x=Fecha, y=Ventas, colour = Fabricante, group = Fabricante)) +geom_point()
 ggplot(data=DatosEjer4, aes(x=Fecha, y=Ventas, colour = Fabricante, group = Fabricante)) +geom_line(aes(linetype=Fabricante))+geom_point()
 ggplot(data=DatosEjer4, aes(x=Fecha, y=Ventas, colour = Fabricante, group = Fabricante)) +geom_line(aes(linetype=Fabricante))+geom_point()+labs(title = "Ventas mensuales de diferentes compañías tecnológicas")
-
+ggsave('figs/Ejercicio4.pdf') 
 ```
 
 ## Barras de error con **ggplot2**
@@ -358,8 +358,14 @@ El fichero ``iceRiver.RData`` contiene información del caudal de dos ríos isla
   * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio5.pdf``.
 
 ```{r Solucion ejercicio 6 }
-
-
+rm(list = ls())
+load("./data/iceRiver.Rdata")
+ggplot(data=ice.river.df, aes(x=flow.vat, y=flow.jok, )) +geom_line()+geom_point()+labs(title = "Caudales de los rios islandeses Vatnsdalsa(azul) y Jokulsa Eystri(rojo)")
+ggplot(data=ice.river.df, aes(x = time)) +
+  geom_line(aes(y = flow.vat, color = "red")) +
+  geom_line(aes(y = flow.jok, color = "blue")) +labs(title = "Caudales de los rios islandeses Vatnsdalsa(azul) y Jokulsa Eystri(rojo)",x="Caudal(m3/s)",y="Tiempo(Años)" )
+        
+ggsave('figs/Ejercicio6.pdf') 
 ```
 
 
