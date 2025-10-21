@@ -360,7 +360,6 @@ El fichero ``iceRiver.RData`` contiene información del caudal de dos ríos isla
 ```{r Solucion ejercicio 6 }
 rm(list = ls())
 load("./data/iceRiver.Rdata")
-ggplot(data=ice.river.df, aes(x=flow.vat, y=flow.jok, )) +geom_line()+geom_point()+labs(title = "Caudales de los rios islandeses Vatnsdalsa(azul) y Jokulsa Eystri(rojo)")
 ggplot(data=ice.river.df, aes(x = time)) +
   geom_line(aes(y = flow.vat, color = "red")) +
   geom_line(aes(y = flow.jok, color = "blue")) +labs(title = "Caudales de los rios islandeses Vatnsdalsa(azul) y Jokulsa Eystri(rojo)",x="Caudal(m3/s)",y="Tiempo(Años)" )
@@ -382,6 +381,8 @@ En esta sección vamos a utilizar **ggplot2** para representar distribuciones de
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio7.pdf``.
 
 ```{r Solucion ejercicio 7}
+rm(list = ls())
+load("./data/weatherAUS_distributions.RData")
 
 ```
 
