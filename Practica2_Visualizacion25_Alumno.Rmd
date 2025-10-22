@@ -34,7 +34,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=4)
 
 ```{r}
 library(pacman)
-packages =  c("tidyverse", "knitr", "ggplot2", "datasets", "RColorBrewer",'latex2exp')
+packages =  c("tidyverse", "knitr", "ggplot2", "datasets", "RColorBrewer",'latex2exp','data.table')
 pacman::p_load(char=packages)
 
 ```
@@ -512,7 +512,7 @@ ggplot(data=dataset_hist1, aes(x=AGE)) +
 
 ```{r Solucion ejercicio 8}
 #
-install.packages("data.table")  # si no lo tienes
+
 library(data.table)
 library(ggplot2)
 datos <- fread("http://assets.datacamp.com/blog_assets/chol.txt")
